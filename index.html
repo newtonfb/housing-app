@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Housing Resource Search</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <span>HR</span>
+        <div>
+          <div>Housing Resources</div>
+          <small style="color: var(--muted);">Reentry Services · Internal</small>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a class="ghost" href="./talk.html">Housing Talk</a>
+        <button class="ghost" aria-label="open support">Contact Admin</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Find the right placement fast.</h1>
+        <p>
+          Modern, searchable inventory of housing programs with filters, capacity insights, and a
+          shared activity feed for your team of 30.
+        </p>
+      </section>
+
+      <section class="card" aria-label="search and results">
+        <div class="filter-bar">
+          <label>
+            <div class="label">Search</div>
+            <input id="search-input" placeholder="Program, city, or county" />
+          </label>
+          <label>
+            <div class="label">City</div>
+            <select id="filter-city"></select>
+          </label>
+          <label>
+            <div class="label">County</div>
+            <select id="filter-county"></select>
+          </label>
+          <label>
+            <div class="label">Program type</div>
+            <select id="filter-type"></select>
+          </label>
+          <label>
+            <div class="label">Specialization</div>
+            <select id="filter-specialization"></select>
+          </label>
+          <label>
+            <div class="label">Gender</div>
+            <select id="filter-gender"></select>
+          </label>
+        </div>
+
+        <div class="results-meta">
+          <strong id="results-count">0 matches</strong>
+          <span>Updated in real time as you type.</span>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th data-sort="programName">Program <span class="sort-indicator"></span></th>
+                <th data-sort="programType">Type <span class="sort-indicator"></span></th>
+                <th data-sort="specialization">Specialization <span class="sort-indicator"></span></th>
+                <th data-sort="gender">Gender <span class="sort-indicator"></span></th>
+                <th data-sort="availableBeds">Beds <span class="sort-indicator"></span></th>
+                <th data-sort="contact">Contact</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody id="results-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card activity" aria-label="activity feed">
+        <div class="activity-header">
+          <div>
+            <p class="label">Activity feed</p>
+            <h2>See what changed</h2>
+            <p class="muted">
+              Latest housing adds, comments, and program updates in one stream.
+            </p>
+          </div>
+          <button id="refresh-feed" class="ghost">Refresh</button>
+        </div>
+        <ul id="activity-feed" class="activity-feed"></ul>
+      </section>
+    </main>
+
+    <div id="overlay" class="overlay" aria-hidden="true"></div>
+    <aside id="detail-panel" class="detail-panel" role="dialog" aria-modal="true">
+      <button id="detail-close" class="detail-close" aria-label="Close">✕</button>
+      <div id="detail-content"></div>
+    </aside>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

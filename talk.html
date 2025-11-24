@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Housing Talk Forum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <span>HR</span>
+        <div>
+          <div>Housing Talk</div>
+          <small style="color: var(--muted);">Internal forum</small>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a class="ghost" href="./index.html">Back to search</a>
+      </div>
+    </header>
+
+    <main style="padding: 0 6vw 3rem; display: grid; gap: 1rem;">
+      <section class="hero">
+        <h1>Share ideas, unblock issues.</h1>
+        <p>
+          Start threads about placements, landlord intel, or policy questions. Everything is saved
+          locally for your team.
+        </p>
+      </section>
+
+      <section class="card" aria-label="new thread">
+        <h2>Create a thread</h2>
+        <form id="thread-form" class="comment-form">
+          <div class="form-row">
+            <label>
+              Name
+              <input required name="author" placeholder="Your name" />
+            </label>
+            <label>
+              Topic
+              <input required name="topic" placeholder="What do you want to discuss?" />
+            </label>
+            <label>
+              Message
+              <input required name="body" placeholder="Add details" />
+            </label>
+            <button type="submit" class="primary">Post</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card" aria-label="threads">
+        <div class="activity-header">
+          <div>
+            <p class="label">Housing Talk</p>
+            <h2>Latest threads</h2>
+            <p class="muted">Chronological discussion feed for your internal questions.</p>
+          </div>
+          <button id="refresh-threads" class="ghost">Refresh</button>
+        </div>
+        <ul id="thread-list" class="activity-feed"></ul>
+      </section>
+    </main>
+
+    <script type="module" src="./talk.js"></script>
+  </body>
+</html>
